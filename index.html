@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- _layout.jade-->
+<html lang="ja">
+  <head>
+    <!-- headのmetaには変数を使用しています。変数は var 変数名 で宣言します。-->
+    <!-- mixinでモジュール化-->
+        <meta charset="UTF-8">
+        <!-- charset=metas.charset-->
+        <meta name="viewport" content="width=device-width">
+        <!-- content=metas.viewport-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <!-- content=metas.httpequiv-->
+        <meta name="description" content="これはテストページです。jadeテンプレートエンジンを使用してくみ上げてみました。">
+        <!-- content=matas.description-->
+        <meta name="keywords" content="jade,test,テストページ,フロントエンド">
+        <!-- content=metas.keywords-->
+        <meta name="author" content="T.Hizaki">
+        <!-- content=metas.author-->
+        <meta property="og:title" content="JADEテストページですっ！（ここは変数metas.titleです）">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="http://hogehoge.jp/">
+        <meta property="og:image" content="http://image/og_image.png">
+        <meta property="og:site_name" content="JADEテンプレートのご紹介">
+        <meta property="og:description" content="これはテストページです。jadeテンプレートエンジンを使用してくみ上げてみました。">
+        <meta property="fb:app_id" content="任意のID">
+    <title>JADEテストページですっ！（ここは変数metas.titleです）</title>
+    <!-- 共通部分-->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/post.css" rel="stylesheet">
+    <!-- /共通部分-->
+    <!-- ページ専用のものをappendで読み込みます-->
+    <link href="/css/top.css" rel="stylesheet">
+    <!-- /ページ専用のものをappendで読み込みます-->
+    <script type="text/javascript" src="/js/script.js"></script>
+    <!-- THREE.JS-->
+    <script type="text/javascript" src="/js/three.min.js"></script>
+    <script type="text/javascript" src="/js/three-func.js"></script>
+    <!-- /THREE.JS-->
+  </head>
+  <body id="top">
+    <header id="header">
+      <h1>JADEテストページですっ！（ここは変数metas.titleです）</h1>
+      <p>このヘッダ部分は_header.jadeをincludeしており、上のh1は変数metas.titleを使用しています。</p>
+    </header>
+    <main role="main" id="contents">
+      <!-- _top.jade-->
+      <div id="mainContents">
+        <h2>_top.jade</h2>
+        <section id="kihou">
+          <h3>jade（pug）の記法</h3>
+          <p>jade（pug）の記法はSASS等と似ており、ネストによって記述します。</p>
+          <p>基本的なHTMLの記法とだいぶ異なるので最初はとっつきにくいですが、慣れてくると直感的でコードも短く済み、便利です。</p>
+          <p>PHP等の動的なコードを埋め込む際は使いにくいかも。静的HTMLの大量生産に向いてるかな～^^</p>
+        </section>
+        <section id="howtouse">
+          <h3>つかいかた</h3>
+          <p>gulp-jadeをインストール。で、</p><code>gulp.task('jade', function(){<br> return gulp.src(['./src/jade/**/*.jade', '!./src/jade/**/_*.jade'])<br>   .pipe(jade({<br>     pretty: true<br>   }))<br>   .pipe(gulp.dest('./'));<br>});</code>
+          <p>こんな感じで設定。</p>
+        </section>
+        <section id="template">
+          <h3>テンプレート</h3>
+          <p>各テンプレートをincludeすることによって効率的な開発が可能になります。</p>
+          <p>このメインコンテンツ部分は「_top.jade（_top.pug）」をincludeしています。</p>
+        </section>
+        <section id="variant">
+          <h3>変数</h3>
+          <p>変数も使用することができ、あらかじめ変数を記述したテンプレートをincludeし、mixinでモジュール化することで、複数個所に同じテキストを挿入する等の操作が可能になります。</p>
+        </section>
+        <section id="kuwasikuwa">
+          <h3>参照URL</h3>
+          <p><a href="http://blog.lai.so/entry/2012/11/17/134317" target="_blank">Node.jsテンプレートエンジン。Jade と EJSの比較</a></p>
+          <p><a href="http://qiita.com/soarflat/items/a80bdca813ae83bc9ebc" target="_blank">Pug(Jade)記法でHTMLのテンプレート的なの</a></p>
+          <p><a href="http://blog.kazupon.jp/post/38877362879/jade-mixin-tips" target="_blank">Jadeで便利なmixinの機能</a></p>
+        </section>
+        <div id="threeArea"></div>
+      </div>
+      <!-- /_top.jade-->
+      <!-- navigation.jade-->
+      <nav id="navigation">
+        <p class="navigationTitle">_navigation.jade</p>
+        <p>このナビ部分は_<br>navigation.jadeを<br>includeしています↓↓</p>
+        <ul>
+          <li><a href="#">Navigation01</a></li>
+          <li><a href="#">Navigation02</a></li>
+          <li><a href="#">Navigation03</a></li>
+          <li><a href="#">Navigation04</a></li>
+          <li><a href="#">Navigation05</a></li>
+          <li><a href="#">Navigation06</a></li>
+          <li><a href="#">Navigation07</a></li>
+          <li><a href="#">Navigation08</a></li>
+        </ul>
+      </nav>
+      <!-- /navigation.jade-->
+    </main>
+    <!-- _footer.jade-->
+    <footer id="footer">
+      <p>Copyright 2017 &copy;hogehogefugafuga<br><span>このフッタ部分は_footer.jadeをincludeしています。</span></p>
+    </footer>
+    <!-- /_footer.jade-->
+  </body>
+</html>
+<!-- /layout.jade-->

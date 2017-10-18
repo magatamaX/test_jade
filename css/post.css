@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+/* *** ROOT *** */
+:root{
+}
+/* ** /ROOT *** */
+
+.testArea00{
+
+}
+.testArea00 .p-test-00{
+	color: red;
+	font-size: 28px;
+  background: #7c5b9c;
+}
+.testArea00 .p-test-01{
+  font-size: 30px;
+}
+@media screen and (max-width: 768px) {
+  .testArea00 .p-test-01:after{
+  	content: "responsi---ve!";
+  	font-size: 7px;
+  }
+}

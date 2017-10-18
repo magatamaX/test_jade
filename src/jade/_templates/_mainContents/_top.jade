@@ -1,0 +1,49 @@
+// _top.jade
+#mainContents
+  h2 _top.jade
+  
+  section#kihou
+    h3 jade（pug）の記法
+    p jade（pug）の記法はSASS等と似ており、ネストによって記述します。
+    p 基本的なHTMLの記法とだいぶ異なるので最初はとっつきにくいですが、慣れてくると直感的でコードも短く済み、便利です。
+    p PHP等の動的なコードを埋め込む際は使いにくいかも。静的HTMLの大量生産に向いてるかな～^^
+
+  section#howtouse
+    h3 つかいかた
+    p gulp-jadeをインストール。で、
+    code
+      | gulp.task('jade', function(){
+      br 
+      |  return gulp.src(['./src/jade/**/*.jade', '!./src/jade/**/_*.jade'])
+      br
+      |    .pipe(jade({
+      br
+      |      pretty: true
+      br
+      |    }))
+      br
+      |    .pipe(gulp.dest('./'));
+      br
+      | });
+    p こんな感じで設定。
+
+  section#template
+    h3 テンプレート
+    p 各テンプレートをincludeすることによって効率的な開発が可能になります。
+    p このメインコンテンツ部分は「_top.jade（_top.pug）」をincludeしています。
+  
+  section#variant
+    h3 変数
+    p 変数も使用することができ、あらかじめ変数を記述したテンプレートをincludeし、mixinでモジュール化することで、複数個所に同じテキストを挿入する等の操作が可能になります。
+  
+  section#kuwasikuwa
+    h3 参照URL
+    p
+      a(href="http://blog.lai.so/entry/2012/11/17/134317", target="_blank") Node.jsテンプレートエンジン。Jade と EJSの比較
+    p
+      a(href="http://qiita.com/soarflat/items/a80bdca813ae83bc9ebc", target="_blank") Pug(Jade)記法でHTMLのテンプレート的なの
+    p
+      a(href="http://blog.kazupon.jp/post/38877362879/jade-mixin-tips", target="_blank") Jadeで便利なmixinの機能
+
+  #threeArea
+// /_top.jade

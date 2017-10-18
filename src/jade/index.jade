@@ -1,0 +1,16 @@
+extends _templates/_layout
+
+block append meta
+  +meta(metas)
+  include _templates/_inc_meta_facebook
+  +inc_meta_facebook(metas)
+
+block append link
+  // ページ専用のものをappendで読み込みます
+  link(href='/css/top.css', rel='stylesheet')
+  // /ページ専用のものをappendで読み込みます
+block title
+  title #{metas.title}
+
+block mainContents
+  include _templates/_mainContents/_top

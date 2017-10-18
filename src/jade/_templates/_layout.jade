@@ -1,0 +1,56 @@
+//-  変数読み込み
+include _var
+
+doctype html
+// _layout.jade
+html(lang='ja')
+  head
+    // headのmetaには変数を使用しています。変数は var 変数名 で宣言します。
+    block meta
+      // mixinでモジュール化
+      mixin meta(metas)
+        meta(charset=metas.charset)
+        // charset=metas.charset
+        meta(name='viewport', content=metas.viewport)
+        // content=metas.viewport
+        meta(http-equiv="X-UA-Compatible", content=metas.httpequiv)
+        // content=metas.httpequiv
+        meta(name="description", content=metas.description)
+        // content=matas.description
+        meta(name="keywords", content=metas.keywords)
+        // content=metas.keywords
+        meta(name="author", content=metas.author)
+        // content=metas.author
+
+    block title
+
+    block link
+      // 共通部分
+      link(rel='shortcut icon', href='/favicon.ico')
+      link(href='/css/style.css', rel='stylesheet')
+      link(href='/css/post.css', rel='stylesheet')
+      // /共通部分
+
+    block head_script
+      script(type='text/javascript', src='/js/script.js')
+      // THREE.JS
+      script(type='text/javascript', src='/js/three.min.js')
+      script(type='text/javascript', src='/js/three-func.js')
+      // /THREE.JS
+
+  body#top
+    block body
+
+      block header
+        include _header
+      
+      main(role="main")#contents
+      
+        block mainContents
+        
+        block navigation
+          include _navigation
+      
+      block footer
+        include _footer
+// /layout.jade
